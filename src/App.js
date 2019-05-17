@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 
 import Header from './Components/Header/Header';
@@ -10,21 +11,17 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      inventory: [
-        {
-          name: 'product 1',
-          price: 1000,
-          url: 'https://www.santacruzbicycles.com/files/chain_slapper.jpg'
-        },
-        {
-          name: 'product 2',
-          price: 2000,
-          url: 'https://www.santacruzbicycles.com/files/internal_routing.jpg'
-        }
-      ]
+      inventory: []
     }
   }
 
+  componentDidMount() {
+    axios.get('/api/inventory').then((res) => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
 
   render() {
     // console.log(this.state.inventory)
