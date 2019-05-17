@@ -23,6 +23,9 @@ massive(CONNECTION_STRING)
         if (error) throw error;
     });
 
+// end points
+app.get('/api/inventory', controller.getAllProducts);
+
 
 // app is listening
 app.listen(SERVER_PORT, () => {
