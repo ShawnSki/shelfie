@@ -26,6 +26,8 @@ massive(CONNECTION_STRING)
 // end points
 app.get('/api/inventory', controller.getAllProducts);
 app.post('/api/product', controller.addProduct);
+app.delete('/api/product/:id', controller.deleteProduct);
+app.put('/api/updateProduct/:id', controller.updateProduct);
 
 
 // app is listening

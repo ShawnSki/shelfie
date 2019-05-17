@@ -16,5 +16,13 @@ module.exports = {
             .catch(error => {
                 if (error) throw error;
             })
+    },
+
+    deleteProduct() {
+
+    },
+
+    updateProduct() {
+        
     }
 }

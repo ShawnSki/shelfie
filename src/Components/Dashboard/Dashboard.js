@@ -13,7 +13,6 @@ class Dashboard extends Component {
         })
         return (
             <div>
-                <div>Dashboard</div>
                 {inventoryMapped}
             </div>
         )

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import './Product.css'
 
 class Product extends Component {
     render() {
         // console.log(this.props.productObj)
         const {name, price, url} = this.props.productObj
         return (
-            <div>
+            <div className='container'>
                 <div>
-                    <img src={url} width='300' height='200' />
+                    <img src={url} className='imgBox' />
                 </div>
-                <div>
+                <div className='textContainer'>
                     <h1>{name}</h1>
                     <h2>{price}</h2>
                 </div>
@@ -17,5 +18,6 @@ class Product extends Component {
         )
     }
 }
+
 
 export default Product;

@@ -11,11 +11,18 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      inventory: []
+      inventory: [],
+      url: '',
+      name: '',
+      price: null
     }
   }
 
   componentDidMount() {
+    this.handleGetInventory()
+  }
+
+  handleGetInventory() {
     axios.get('/api/inventory').then((res) => {
       this.setState({
         inventory: res.data
@@ -23,13 +30,43 @@ class App extends Component {
     })
   }
 
+  handleUpdateInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleAddProduct = (e) => {
+    e.preventDefault();
+    axios.post('/api/product', {
+      name: this.state.name,
+      price: this.state.price,
+      url: this.state.url
+    })
+      .then((res) => {
+        this.setState({
+          inventory: res.data
+        })
+        this.handleGetInventory();
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+ 
+
   render() {
     // console.log(this.state.inventory)
     return (
       <div className="App">
         <Header />
-        <Dashboard inventoryList={this.state.inventory} />
-        <Form />
+        <div className='contentContainer'>
+          <Dashboard inventoryList={this.state.inventory} />
+          <Form
+            handleAddProduct={this.handleAddProduct}
+            handleUpdateInput={this.handleUpdateInput} />
+        </div>
       </div>
     );
   }

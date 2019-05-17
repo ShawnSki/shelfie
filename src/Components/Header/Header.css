@@ -1,0 +1,15 @@
+.headerContainer {
+    padding: .5em;
+    background: #333;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.headerContainer img {
+    width: 3em;
+    height: 3em;
+    margin-right: 1em;
+}
+.headerContainer h1 {
+    color: #fff;
+}
