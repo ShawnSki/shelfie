@@ -25,9 +25,10 @@ class Form extends Component {
 
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div>
+                <h1>Form</h1>
                 <div>
                     <h2>Image URL:</h2>
                     <input name='url' placeholder='image url' onChange={this.handleUpdateInput} />
